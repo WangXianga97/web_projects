@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.16.3"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-b309d612f43eefa0870745be8d89c175"}, "mark": {"type": "bar"}, "encoding": {"color": {"condition": {"param": "param_2", "value": "orange", "empty": false}, "value": "steelblue"}, "tooltip": [{"field": "MainType", "type": "nominal"}, {"field": "Count", "type": "quantitative"}], "x": {"field": "MainType", "title": "Main Type", "type": "nominal"}, "y": {"field": "Count", "title": "Count", "type": "quantitative"}}, "params": [{"name": "param_2", "select": {"type": "point", "fields": ["MainType"], "nearest": true, "on": "mouseover"}}], "title": "Count of Pok\u00e9mon for Each Type", "$schema": "https://vega.github.io/schema/vega-lite/v5.16.3.json", "datasets": {"data-b309d612f43eefa0870745be8d89c175": [{"MainType": "Water", "Count": 18}, {"MainType": "Normal", "Count": 14}, {"MainType": "Ground", "Count": 14}, {"MainType": "Flying", "Count": 13}, {"MainType": "Grass", "Count": 12}, {"MainType": "Fire", "Count": 12}, {"MainType": "Bug", "Count": 12}, {"MainType": "Poison", "Count": 12}, {"MainType": "Psychic", "Count": 11}, {"MainType": "Electric", "Count": 9}, {"MainType": "Fighting", "Count": 8}, {"MainType": "Ice", "Count": 4}, {"MainType": "Rock", "Count": 4}, {"MainType": "Ghost", "Count": 3}, {"MainType": "Dragon", "Count": 3}, {"MainType": "Fairy", "Count": 2}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
